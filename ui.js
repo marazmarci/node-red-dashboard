@@ -401,7 +401,7 @@ function init(server, app, log, redSettings) {
     }
 
     io.on('connection', function(socket) {
-        ev.emit("newsocket", socket.id, socket.request.headers['x-real-ip'] || socket.request.headers['x-forwarded-for'] || socket.request.connection.remoteAddress);
+        ev.emit("newsocket", socket.id, socket.request.headers['x-real-ip'] || socket.request.headers['x-forwarded-for'] || socket.request.connection.remoteAddress, socket.request.headers);
         updateUi(socket);
 
         socket.on(updateValueEventName, ev.emit.bind(ev, updateValueEventName));

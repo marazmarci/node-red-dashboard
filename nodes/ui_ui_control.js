@@ -22,8 +22,8 @@ module.exports = function(RED) {
             }
         });
 
-        var sendconnect = function(id, ip) {
-            node.send({payload:"connect", socketid:id, socketip:ip});
+        var sendconnect = function(id, ip, headers) {
+            node.send({payload:"connect", socketid:id, socketip:ip, headers:headers});
         };
 
         var sendlost = function(id, ip) {
